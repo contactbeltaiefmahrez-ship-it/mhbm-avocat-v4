@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Consultez le Cabinet MHBM Avocat en ligne — vidéo, WhatsApp ou avis écrit.">
+  <title>Consultation en Ligne — Cabinet MHBM Avocat</title>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/typography.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+  <script src="../assets/js/lang/fr.js"></script>
+  <script src="../assets/js/lang/ar.js"></script>
+  <script src="../assets/js/components/page-template.js" defer></script>
+</head>
+<body>
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb"><a href="../index.html" data-i18n="breadcrumb_home">Accueil</a><span>›</span><span aria-current="page" data-i18n="nav_consultation">Consultation en Ligne</span></nav>
+      <h1 data-i18n="consult_title">Consultez notre cabinet. Depuis n'importe où.</h1>
+      <p data-i18n="consult_subtitle">Trois modes de consultation adaptés à votre situation et à votre emploi du temps</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="consult-grid" data-stagger>
+        <div class="consult-card" id="video" data-reveal>
+          <div class="consult-card-icon"><svg width="32" height="32"><use href="../assets/icons/icons.svg#icon-video"/></svg></div>
+          <span class="consult-badge" data-i18n="consult_video_badge">Recommandé</span>
+          <h3 data-i18n="consult_video_title">Rendez-vous vidéo</h3>
+          <p data-i18n="consult_video_desc">Un entretien confidentiel avec Maître Ben Makhlouf via Zoom ou Google Meet.</p>
+          <p class="consult-meta" data-i18n="consult_video_meta">45 minutes · Sur rendez-vous</p>
+          <form data-mhbm-form style="margin-top:auto;">
+            <div class="form-group"><label>Votre nom</label><input type="text" required></div>
+            <div class="form-group"><label>Email ou téléphone</label><input type="text" required></div>
+            <div class="form-group"><label>Date souhaitée</label><input type="date" required></div>
+            <button type="submit" class="btn btn-accent" data-i18n="consult_video_cta">Réserver un créneau →</button>
+            <div class="form-success" style="display:none;" role="alert"><h4>Demande envoyée !</h4><p>Nous vous confirmons le rendez-vous dans les 24h.</p></div>
+          </form>
+        </div>
+        <div class="consult-card" data-reveal>
+          <div class="consult-card-icon"><svg width="32" height="32"><use href="../assets/icons/icons.svg#icon-whatsapp"/></svg></div>
+          <h3 data-i18n="consult_wa_title">Consultation WhatsApp</h3>
+          <p data-i18n="consult_wa_desc">Posez votre question directement à notre équipe. Réponse sous 24h ouvrées.</p>
+          <p class="consult-meta" data-i18n="consult_wa_meta">Réponse sous 24h ouvrées</p>
+          <a href="https://wa.me/21698258015?text=Bonjour%2C%20je%20souhaite%20une%20consultation%20juridique." class="btn btn-outline" rel="noopener noreferrer" data-i18n="consult_wa_cta">Écrire maintenant →</a>
+        </div>
+        <div class="consult-card" id="avis" data-reveal>
+          <div class="consult-card-icon"><svg width="32" height="32"><use href="../assets/icons/icons.svg#icon-document"/></svg></div>
+          <h3 data-i18n="consult_avis_title">Avis juridique écrit</h3>
+          <p data-i18n="consult_avis_desc">Recevez un avis juridique détaillé livré en PDF sous 48–72h ouvrées.</p>
+          <p class="consult-meta" data-i18n="consult_avis_meta">PDF signé · Français et Arabe</p>
+          <form data-mhbm-form style="margin-top:auto;">
+            <div class="form-group"><label>Votre situation (résumé)</label><textarea rows="4" required></textarea></div>
+            <div class="form-group"><label>Email</label><input type="email" required></div>
+            <button type="submit" class="btn btn-outline" data-i18n="consult_avis_cta">Demander un avis →</button>
+            <div class="form-success" style="display:none;" role="alert"><h4>Demande reçue !</h4><p>Vous recevrez votre avis sous 48–72h ouvrées.</p></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script src="../assets/js/core.js" defer></script>
+</body>
+</html>

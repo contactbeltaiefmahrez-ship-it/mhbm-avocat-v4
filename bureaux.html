@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Localisation du Cabinet MHBM Avocat — Rue des Fleurs, M'saken, Sousse 4070, Tunisie.">
+  <title>Nos Bureaux — Cabinet MHBM Avocat</title>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/typography.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+  <script src="../assets/js/lang/fr.js"></script>
+  <script src="../assets/js/lang/ar.js"></script>
+  <script src="../assets/js/components/page-template.js" defer></script>
+  <style>
+    .bureaux-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    @media (max-width: 768px) { .bureaux-grid { grid-template-columns: 1fr; } }
+    .map-container { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(10,57,119,.12); aspect-ratio: 4/3; }
+    .map-container iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .map-placeholder-box {
+      width: 100%; aspect-ratio: 4/3;
+      background: var(--gray-soft, #F7F8FA);
+      border: 2px dashed #CBD5E1;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: .5rem; text-align: center; padding: 1.5rem;
+      color: var(--text-mid, #4A5568); font-size: .85rem;
+    }
+    .contact-info-card { background: #F7F8FA; border-radius: 12px; padding: 2rem; }
+    .contact-info-card h3 { font-family: 'Playfair Display', serif; color: var(--blue-deep, #071F45); margin-bottom: 1.25rem; }
+    .info-row { display: flex; gap: .75rem; align-items: flex-start; margin-bottom: 1rem; font-size: .95rem; }
+    .info-row svg { flex-shrink: 0; margin-top: .15rem; color: var(--gold, #B58A45); }
+    .info-row a { color: inherit; text-decoration: none; }
+    .info-row a:hover { color: var(--blue-inst, #0A3977); }
+    .hours-block { margin-top: 1.5rem; border-top: 1px solid #E2E8F0; padding-top: 1.25rem; }
+    .hours-block table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    .hours-block td { padding: .35rem 0; }
+    .hours-block td:last-child { text-align: right; color: var(--text-mid, #4A5568); }
+    .rtl .hours-block td:last-child { text-align: left; }
+    .map-link { display: inline-flex; align-items: center; gap: .5rem; margin-top: 1rem; font-size: .9rem; font-weight: 500; color: var(--blue-inst, #0A3977); text-decoration: none; }
+    .map-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="../index.html" data-i18n="breadcrumb_home">Accueil</a>
+        <span>›</span>
+        <a href="../pages/cabinet.html" data-i18n="nav_cabinet">Le Cabinet</a>
+        <span>›</span>
+        <span aria-current="page" data-i18n="nav_bureaux">Nos Bureaux</span>
+      </nav>
+      <h1>Nos Bureaux</h1>
+      <p>Retrouvez-nous à M'saken, Sousse — et consultez-nous depuis n'importe où dans le monde.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="bureaux-grid">
+
+        <!-- Carte Google Maps -->
+        <div data-reveal>
+          <h2 data-i18n="bureaux_map_title">Notre localisation</h2>
+          <p style="color:var(--text-mid,#4A5568);margin:.5rem 0 1.25rem;">Cabinet MHBM Avocat — Rue des Fleurs, M'saken, Sousse 4070</p>
+
+          <div class="map-container">
+            <!--
+              GOOGLE MAPS OFFICIEL
+              Adresse : Rue des Fleurs, M'saken, Sousse 4070
+              Place ID : 0x0:0xe6d0960ec942c8ac
+              Lien Google Maps : https://www.google.com/maps/place/Med+Haithem+Ben+Maklouf+(cabinet+d%27avocat+Sousse)/data=!4m2!3m1!1s0x0:0xe6d0960ec942c8ac
+            -->
+            <iframe
+              title="Localisation Cabinet MHBM Avocat — M'saken Sousse"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3236.74!2d10.5885!3d35.7290!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe6d0960ec942c8ac!2sMed%20Haithem%20Ben%20Maklouf%20(cabinet%20d'avocat%20Sousse)!5e0!3m2!1sfr!2stn!4v1700000000000"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <a href="https://www.google.com/maps/place/Med+Haithem+Ben+Maklouf+(cabinet+d%27avocat+Sousse)/data=!4m2!3m1!1s0x0:0xe6d0960ec942c8ac?sa=X&ved=1t:2428&ictx=111"
+             target="_blank" rel="noopener noreferrer" class="map-link" data-i18n="bureaux_map_link">
+            <svg width="16" height="16" aria-hidden="true"><use href="../assets/icons/icons.svg#icon-external"/></svg>
+            Obtenir l'itinéraire →
+          </a>
+
+          <!--
+            IMAGE DE CARTE STATIQUE (alternative si iframe non disponible)
+            Fichier    : carte-localisation.webp
+            Dimensions : 1200 × 600 px
+            Aspect Ratio : 2:1
+            Type       : IMAGE STATIQUE (capture Google Maps ou Mapbox)
+          -->
+        </div>
+
+        <!-- Informations de contact -->
+        <div data-reveal>
+          <div class="contact-info-card">
+            <h3>Cabinet MHBM Avocat</h3>
+            <p style="color:var(--text-mid,#4A5568);margin-bottom:1.25rem;font-size:.9rem;">
+              Maître Mohamed Haithem Ben Makhlouf<br>
+              Avocat près de la Cour de Cassation — Barreau de Tunisie
+            </p>
+
+            <div class="info-row">
+              <svg width="18" height="18" aria-hidden="true"><use href="../assets/icons/icons.svg#icon-pin"/></svg>
+              <div>
+                <strong>Adresse</strong><br>
+                <span data-i18n="footer_address">Rue des Fleurs, M'saken, Sousse 4070, Tunisie</span>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <svg width="18" height="18" aria-hidden="true"><use href="../assets/icons/icons.svg#icon-phone"/></svg>
+              <div>
+                <strong>Téléphone</strong><br>
+                <a href="tel:+21673264360"><bdi dir="ltr">+216 73 264 360</bdi></a>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <svg width="18" height="18" aria-hidden="true"><use href="../assets/icons/icons.svg#icon-whatsapp"/></svg>
+              <div>
+                <strong>WhatsApp</strong><br>
+                <a href="https://wa.me/21698258015" rel="noopener noreferrer"><bdi dir="ltr">+216 98 258 015</bdi></a>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <svg width="18" height="18" aria-hidden="true"><use href="../assets/icons/icons.svg#icon-mail"/></svg>
+              <div>
+                <strong>Email</strong><br>
+                <a href="mailto:contact@mhbm-avocat.com">contact@mhbm-avocat.com</a>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <svg width="18" height="18" aria-hidden="true"><use href="../assets/icons/icons.svg#icon-globe"/></svg>
+              <div>
+                <strong>Site web</strong><br>
+                <a href="https://www.mhbm-avocat.com" rel="noopener noreferrer">www.mhbm-avocat.com</a>
+              </div>
+            </div>
+
+            <!-- Horaires -->
+            <div class="hours-block">
+              <h4 style="font-size:.95rem;font-weight:600;margin-bottom:.75rem;" data-i18n="footer_hours_title">Horaires</h4>
+              <table>
+                <tbody>
+                  <tr>
+                    <td data-i18n="footer_hours_1">Lundi – Vendredi</td>
+                    <td><bdi dir="ltr" data-i18n="footer_hours_1_val">08:00 – 17:30</bdi></td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="footer_hours_2">Samedi</td>
+                    <td><bdi dir="ltr" data-i18n="footer_hours_2_val">08:00 – 13:30</bdi></td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="footer_hours_3">Dimanche</td>
+                    <td data-i18n="footer_hours_3_val">Fermé</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style="font-size:.82rem;color:var(--text-mid,#4A5568);margin-top:.75rem;" data-i18n="footer_hours_note">Consultations en ligne disponibles en dehors des horaires sur rendez-vous</p>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:.75rem;">
+            <a href="../pages/consultation-ligne.html" class="btn btn-accent btn-lg" data-i18n="page_cta_rdv">📅 Prendre rendez-vous</a>
+            <a href="../pages/contact.html" class="btn btn-outline btn-lg" data-i18n="page_cta_contact">Nous contacter</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo du bureau -->
+  <section class="section bg-light">
+    <div class="container">
+      <div data-reveal>
+        <h2 style="text-align:center;margin-bottom:2rem;">Le Cabinet en images</h2>
+        <!--
+          IMAGE BUREAU (LARGE)
+          Fichier    : bureau-large.webp
+          Titre      : Photo bureau large — salle de réunion
+          Dimensions : 1600 × 900 px
+          Aspect Ratio : 16:9
+          Type       : PHOTO
+        -->
+        <div class="img-placeholder img-placeholder-full" aria-hidden="true" style="max-width:1200px;margin:0 auto;aspect-ratio:16/9;">
+          <p>
+            <strong>bureau-large.webp</strong><br>
+            Photo bureau — salle de réunion cabinet<br>
+            <bdi dir="ltr">1600 × 900 px · 16:9</bdi><br>
+            PHOTO À INSÉRER ICI
+          </p>
+        </div>
+        <!--
+        <img src="../assets/images/bureau-large.webp" alt="Salle de réunion du Cabinet MHBM Avocat" width="1600" height="900" loading="lazy" style="width:100%;border-radius:12px;">
+        -->
+      </div>
+    </div>
+  </section>
+
+</main>
+<script src="../assets/js/core.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Messages — Espace Client MHBM</title>
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/typography.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="../../assets/js/lang/fr.js"></script>
+  <script src="../../assets/js/lang/ar.js"></script>
+  <script src="../../assets/js/espace-client/client-data.js"></script>
+  <style>
+    body { background: var(--gray-soft); }
+    .ec-layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+    .ec-sidebar {
+      background: var(--blue-deep); color: var(--white); padding: 1.5rem 1rem;
+      position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    }
+    .ec-sidebar-logo { font-family: "Playfair Display",serif; font-size:1.2rem; font-weight:700; color:var(--gold-lt); padding:.75rem .5rem 1.5rem; border-bottom:1px solid rgba(255,255,255,.1); margin-bottom:1rem; }
+    .ec-nav a { display:flex; align-items:center; gap:.6rem; padding:.55rem .75rem; border-radius:var(--radius-sm); font-size:.85rem; color:rgba(255,255,255,.7); text-decoration:none; margin-bottom:.15rem; transition:all .2s; }
+    .ec-nav a:hover, .ec-nav a.active { background:rgba(255,255,255,.1); color:var(--white); }
+    .ec-nav a svg { width:16px; height:16px; flex-shrink:0; }
+    .ec-nav .nav-section-title { font-size:.65rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:rgba(255,255,255,.3); padding:.75rem .75rem .25rem; margin-top:.5rem; }
+    .ec-main { padding: 2rem; }
+    .ec-topbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:2rem; }
+    .ec-topbar h1 { font-size:1.5rem; color:var(--blue-deep); }
+    .ec-user-chip { display:flex; align-items:center; gap:.6rem; font-size:.85rem; font-weight:500; }
+    .ec-avatar { width:36px; height:36px; border-radius:50%; background:var(--blue-inst); color:var(--white); display:flex; align-items:center; justify-content:center; font-size:.8rem; font-weight:700; }
+    .ec-demo-note { background:#FFF8E1; border:1px solid #FFD54F; border-radius:var(--radius-sm); padding:.65rem 1rem; font-size:.78rem; color:#7B5800; margin-bottom:1.5rem; }
+    .ec-card { background:var(--white); border-radius:var(--radius); padding:1.5rem; box-shadow:var(--shadow-sm); border:1px solid var(--gray-mid); margin-bottom:1.25rem; }
+    .ec-stat { text-align:center; }
+    .ec-stat-value { font-family:"Playfair Display",serif; font-size:2rem; font-weight:700; color:var(--blue-inst); }
+    .ec-stat-label { font-size:.8rem; color:var(--text-mid); margin-top:.25rem; }
+    .badge { display:inline-block; padding:.2rem .65rem; border-radius:var(--radius-full); font-size:.72rem; font-weight:600; }
+    .badge-green  { background:#DCFCE7; color:#166534; }
+    .badge-orange { background:#FEF3C7; color:#92400E; }
+    .badge-gray   { background:#F1F5F9; color:#475569; }
+    .badge-red    { background:#FEE2E2; color:#991B1B; }
+    table { width:100%; border-collapse:collapse; font-size:.85rem; }
+    th { text-align:left; padding:.6rem .75rem; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-light); border-bottom:2px solid var(--gray-mid); }
+    td { padding:.65rem .75rem; border-bottom:1px solid var(--gray-mid); color:var(--text-mid); }
+    tr:last-child td { border-bottom:none; }
+    tr:hover td { background:var(--gray-soft); }
+    .btn-xs { padding:.3rem .7rem; font-size:.75rem; border-radius:var(--radius-sm); }
+    @media(max-width:900px){ .ec-sidebar{display:none;} .ec-main{padding:1.25rem;} }
+  </style>
+</head>
+<body>
+<div class="ec-layout">
+  <aside class="ec-sidebar">
+    <div class="ec-sidebar-logo" data-i18n="ec_dash_welcome">Mon Espace</div>
+    <nav class="ec-nav">
+      <p class="nav-section-title">Navigation</p>
+      <a href="dashboard.html" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> <span data-i18n="ec_dash_title">Tableau de bord</span></a>
+      <a href="dossiers.html" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> <span data-i18n="ec_dossiers_title">Mes dossiers</span></a>
+      <a href="documents.html" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> <span data-i18n="ec_docs_title">Documents</span></a>
+      <a href="messages.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> <span data-i18n="ec_msgs_title">Messages</span></a>
+      <a href="consultations.html" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> <span data-i18n="ec_consults_title">Consultations</span></a>
+      <a href="paiements.html" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg> <span data-i18n="ec_payments_title">Paiements</span></a>
+      <p class="nav-section-title">Compte</p>
+      <a href="notifications.html" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg> <span data-i18n="ec_notifs_title">Notifications</span></a>
+      <a href="profil.html" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> <span data-i18n="ec_profil_title">Mon profil</span></a>
+      <a href="parametres.html" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg> <span data-i18n="ec_settings_title">Paramètres</span></a>
+      <a href="login.html" onclick="if(window.MHBM_AUTH)MHBM_AUTH.logout();return true;" style="margin-top:1rem;border-top:1px solid rgba(255,255,255,.1);padding-top:1rem;color:rgba(255,100,100,.8);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> <span data-i18n="ec_logout">Déconnexion</span></a>
+    </nav>
+  </aside>
+  <main class="ec-main">
+    <div class="ec-topbar">
+      <h1 data-i18n="ec_messages_title" style="font-size:1.4rem;">Messages</h1>
+      <div class="ec-user-chip">
+        <div class="ec-avatar" id="ec-avatar">MB</div>
+        <span id="ec-username">Mahrez Beltaief</span>
+      </div>
+    </div>
+    <div class="ec-demo-note" data-i18n="ec_demo_warning">⚠️ Mode démonstration — aucune donnée réelle</div>
+    
+<div style="display:grid;grid-template-columns:280px 1fr;gap:1.25rem;min-height:400px;">
+  <div class="ec-card" style="padding:.75rem;"><div id="msgs-sidebar"></div></div>
+  <div class="ec-card" id="msg-view"><p style="color:var(--text-light);text-align:center;padding:2rem;">Sélectionnez un message</p></div>
+</div>
+<script>
+var msgs=MHBM_AUTH.getMessages();var sb=document.getElementById("msgs-sidebar");var mv=document.getElementById("msg-view");
+sb.innerHTML=msgs.map(function(m,i){return'<div style="padding:.65rem;border-radius:var(--radius-sm);cursor:pointer;border-bottom:1px solid var(--gray-mid);font-weight:'+(!m.lu?"700":"400")+';" onclick="showMsg('+i+')">'+(!m.lu?'<span style="color:var(--blue-inst);">●</span> ':'')+"<div style='font-size:.82rem;'>"+m.objet+"</div><div style='font-size:.72rem;color:var(--text-light);margin-top:.2rem;'>"+m.de+"</div></div>";}).join("");
+function showMsg(i){var m=msgs[i];mv.innerHTML="<h3 style='margin-bottom:.25rem;'>"+m.objet+"</h3><p style='font-size:.78rem;color:var(--text-light);margin-bottom:1.5rem;'>De : "+m.de+" · <bdi dir='ltr'>"+m.date+"</bdi></p><p style='line-height:1.7;'>"+m.corps+"</p>";}
+</script>
+  </main>
+</div>
+<script>
+  var session = window.MHBM_AUTH ? MHBM_AUTH.requireAuth() : null;
+  if (session) {
+    var c = session.client;
+    var av = document.getElementById('ec-avatar');
+    var un = document.getElementById('ec-username');
+    if(av) av.textContent = c.avatar || (c.prenom||'')[0]+(c.nom||'')[0];
+    if(un) un.textContent = (c.prenom||'') + ' ' + (c.nom||'');
+  }
+  var lang = localStorage.getItem('mhbm_lang')||'fr';
+  var dict = lang==='ar'?window.LANG_AR:window.LANG_FR;
+  if(dict) document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(dict[k])el.textContent=dict[k];});
+  if(lang==='ar'){document.documentElement.dir='rtl';document.body.classList.add('rtl');}
+</script>
+</body>
+</html>

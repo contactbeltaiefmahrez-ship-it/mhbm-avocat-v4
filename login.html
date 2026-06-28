@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Connexion — Espace Client — Cabinet MHBM Avocat</title>
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/typography.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="../../assets/js/lang/fr.js"></script>
+  <script src="../../assets/js/lang/ar.js"></script>
+  <script src="../../assets/js/espace-client/client-data.js"></script>
+  <style>
+    :root {
+      --blue-deep: #071F45;
+      --blue-inst: #0A3977;
+      --blue-mid:  #1B4C96;
+      --gold:      #B58A45;
+      --gold-lt:   #C89A55;
+      --white:     #FFFFFF;
+      --gray-soft: #F7F8FA;
+      --text-dark: #1A1A2E;
+      --text-mid:  #4A5568;
+      --radius:    12px;
+      --shadow:    0 8px 32px rgba(10,57,119,0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-inst) 60%, var(--blue-mid) 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      color: var(--text-dark);
+    }
+
+    body.rtl { font-family: 'Tajawal', sans-serif; direction: rtl; }
+
+    /* ── Header mini ── */
+    .login-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 460px;
+      margin-bottom: 2rem;
+    }
+    .login-logo {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      text-decoration: none;
+      color: var(--white);
+    }
+    .login-logo .logo-text-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .login-logo .logo-text-sub {
+      font-size: .9rem;
+      color: rgba(255,255,255,.75);
+    }
+    /* ← Remplacer par :
+       <img src="../../assets/images/logo-mhbm-blanc.svg" alt="Cabinet MHBM Avocat" width="140" height="42">
+    */
+
+    /* ── Switcher langue ── */
+    .login-lang {
+      display: flex;
+      gap: .4rem;
+    }
+    .login-lang button {
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      color: var(--white);
+      border-radius: 6px;
+      padding: .3rem .7rem;
+      font-size: .8rem;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .login-lang button.active,
+    .login-lang button:hover { background: var(--gold); border-color: var(--gold); }
+
+    /* ── Card ── */
+    .login-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 460px;
+      position: relative;
+      overflow: hidden;
+    }
+    .login-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+    }
+
+    /* ── Demo banner ── */
+    .demo-banner {
+      background: #FFF8E1;
+      border: 1px solid #FFD54F;
+      border-radius: 8px;
+      padding: .75rem 1rem;
+      margin-bottom: 1.5rem;
+      font-size: .82rem;
+      color: #7B5800;
+      display: flex;
+      align-items: flex-start;
+      gap: .5rem;
+    }
+    .demo-banner strong { display: block; margin-bottom: .15rem; }
+
+    /* ── Steps indicator ── */
+    .steps-indicator {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: 1.75rem;
+    }
+    .step-dot {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 2px solid #E2E8F0;
+      background: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; font-weight: 600; color: var(--text-mid);
+      transition: all .3s;
+      flex-shrink: 0;
+    }
+    .step-dot.active { background: var(--blue-inst); border-color: var(--blue-inst); color: var(--white); }
+    .step-dot.done   { background: #22C55E; border-color: #22C55E; color: var(--white); }
+    .step-line {
+      flex: 1; height: 2px;
+      background: #E2E8F0;
+      transition: background .3s;
+    }
+    .step-line.done { background: #22C55E; }
+
+    /* ── Panel ── */
+    .login-panel { display: none; }
+    .login-panel.active { display: block; }
+
+    .login-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--blue-deep);
+      margin-bottom: .4rem;
+    }
+    .login-subtitle {
+      font-size: .9rem;
+      color: var(--text-mid);
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Form ── */
+    .form-group {
+      margin-bottom: 1.1rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: .4rem;
+    }
+    .form-group input {
+      width: 100%;
+      padding: .75rem 1rem;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: .95rem;
+      color: var(--text-dark);
+      background: var(--white);
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+    }
+    .form-group input:focus {
+      border-color: var(--blue-inst);
+      box-shadow: 0 0 0 3px rgba(10,57,119,.1);
+    }
+    .form-group input.error { border-color: #EF4444; }
+    .form-error-msg {
+      font-size: .78rem;
+      color: #EF4444;
+      margin-top: .3rem;
+      display: none;
+    }
+    .form-error-msg.visible { display: block; }
+
+    /* ── Password toggle ── */
+    .pwd-wrap { position: relative; }
+    .pwd-toggle {
+      position: absolute;
+      right: .75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-mid);
+      padding: .25rem;
+      display: flex;
+      align-items: center;
+    }
+    .rtl .pwd-toggle { right: auto; left: .75rem; }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      width: 100%;
+      padding: .85rem 1.5rem;
+      background: var(--blue-inst);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s, transform .1s;
+      margin-top: .5rem;
+    }
+    .btn-primary:hover { background: var(--blue-mid); }
+    .btn-primary:active { transform: scale(.98); }
+    .btn-primary:disabled { opacity: .6; cursor: not-allowed; }
+
+    .btn-demo {
+      width: 100%;
+      padding: .7rem 1.5rem;
+      background: transparent;
+      color: var(--blue-inst);
+      border: 1.5px solid var(--blue-inst);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: .9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .2s;
+      margin-top: .75rem;
+    }
+    .btn-demo:hover { background: var(--blue-inst); color: var(--white); }
+
+    /* ── Links ── */
+    .login-link-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.25rem;
+      font-size: .85rem;
+      color: var(--text-mid);
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .login-link-row a {
+      color: var(--blue-inst);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .login-link-row a:hover { text-decoration: underline; }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin: 1.25rem 0;
+      color: var(--text-mid);
+      font-size: .82rem;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #E2E8F0;
+    }
+
+    /* ── Verify code input ── */
+    .verify-inputs {
+      display: flex;
+      gap: .5rem;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+    .verify-inputs input {
+      width: 48px; height: 56px;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      border: 2px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 0;
+      transition: border-color .2s;
+    }
+    .verify-inputs input:focus { border-color: var(--blue-inst); outline: none; }
+
+    .resend-row {
+      text-align: center;
+      font-size: .85rem;
+      color: var(--text-mid);
+      margin-top: .75rem;
+    }
+    .resend-row button {
+      background: none;
+      border: none;
+      color: var(--blue-inst);
+      font-family: inherit;
+      font-size: .85rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    /* ── Back to site ── */
+    .back-to-site {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .back-to-site a {
+      color: rgba(255,255,255,.75);
+      text-decoration: none;
+      font-size: .85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+    }
+    .back-to-site a:hover { color: var(--white); }
+
+    /* ── Strength bar ── */
+    .strength-bar-wrap { margin-top: .4rem; }
+    .strength-bar {
+      height: 4px;
+      border-radius: 2px;
+      background: #E2E8F0;
+      overflow: hidden;
+    }
+    .strength-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width .3s, background .3s;
+      width: 0;
+    }
+    .strength-label { font-size: .72rem; color: var(--text-mid); margin-top: .2rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .login-card { padding: 2rem 1.25rem; }
+      .login-title { font-size: 1.3rem; }
+      .verify-inputs input { width: 40px; height: 48px; font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-header">
+    <a href="../../index.html" class="login-logo" aria-label="Retour au site">
+      <!-- logo-mhbm-blanc.svg | 140 × 42 px | SVG -->
+      <span class="logo-text-main">MHBM</span>
+      <span class="logo-text-sub">Avocat</span>
+    </a>
+    <div class="login-lang" role="group" aria-label="Langue">
+      <button id="lang-fr" class="active" data-lang="fr" onclick="switchLang('fr')">FR</button>
+      <button id="lang-ar" data-lang="ar" onclick="switchLang('ar')">AR</button>
+    </div>
+  </div>
+
+  <div class="login-card" id="login-card">
+
+    <!-- Demo banner -->
+    <div class="demo-banner" id="demo-banner">
+      <span>⚠️</span>
+      <div>
+        <strong data-i18n="ec_demo_warning">Mode démonstration — aucune donnée réelle</strong>
+        <span>Cliquez sur « Connexion démo » pour accéder au compte fictif de Mahrez Beltaief.</span>
+      </div>
+    </div>
+
+    <!-- ════════════════════
+         PANEL 1 — CONNEXION
+    ════════════════════ -->
+    <div class="login-panel active" id="panel-login">
+      <h1 class="login-title" data-i18n="ec_login_title">Connexion Espace Client</h1>
+      <p class="login-subtitle" data-i18n="ec_login_subtitle">Accédez à vos dossiers, documents et messages en toute sécurité.</p>
+
+      <form id="form-login" novalidate>
+        <div class="form-group">
+          <label for="login-email" data-i18n="ec_login_email">Adresse email</label>
+          <input type="email" id="login-email" autocomplete="email" required>
+          <p class="form-error-msg" id="login-email-err">Email requis</p>
+        </div>
+        <div class="form-group">
+          <label for="login-pwd" data-i18n="ec_login_pwd">Mot de passe</label>
+          <div class="pwd-wrap">
+            <input type="password" id="login-pwd" autocomplete="current-password" required>
+            <button type="button" class="pwd-toggle" aria-label="Afficher le mot de passe" onclick="togglePwd('login-pwd', this)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+          <p class="form-error-msg" id="login-pwd-err">Mot de passe requis</p>
+        </div>
+        <div class="form-error-msg visible" id="login-global-err" style="display:none;font-size:.85rem;margin-bottom:.75rem;"></div>
+
+        <button type="submit" class="btn-primary" id="btn-login" data-i18n="ec_login_btn">Se connecter</button>
+
+        <div class="divider">ou</div>
+
+        <button type="button" class="btn-demo" id="btn-demo" onclick="demoLogin()">⚡ <span data-i18n="ec_login_demo">Connexion démo (test)</span></button>
+      </form>
+
+      <div class="login-link-row">
+        <span data-i18n="ec_login_no_account">Pas encore de compte ?</span>
+        <a href="#" onclick="showPanel('register')" data-i18n="ec_login_create">Créer un compte</a>
+      </div>
+      <div class="login-link-row" style="justify-content:center;">
+        <a href="#" data-i18n="ec_login_forgot">Mot de passe oublié ?</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════
+         PANEL 2 — INSCRIPTION
+    ════════════════════ -->
+    <div class="login-panel" id="panel-register">
+
+      <!-- Steps -->
+      <div class="steps-indicator" aria-label="Étapes d'inscription">
+        <div class="step-dot active" id="step1-dot" aria-current="step">1</div>
+        <div class="step-line" id="line1"></div>
+        <div class="step-dot" id="step2-dot">2</div>
+        <div class="step-line" id="line2"></div>
+        <div class="step-dot" id="step3-dot">✓</div>
+      </div>
+
+      <h2 class="login-title" data-i18n="ec_register_title">Créer un compte</h2>
+      <p class="login-subtitle" data-i18n="ec_register_subtitle">Accédez à votre espace client personnalisé.</p>
+
+      <form id="form-register" novalidate>
+        <div class="form-group">
+          <label for="reg-name" data-i18n="ec_register_name">Nom et prénom</label>
+          <input type="text" id="reg-name" autocomplete="name" required>
+          <p class="form-error-msg" id="reg-name-err">Nom requis</p>
+        </div>
+        <div class="form-group">
+          <label for="reg-email" data-i18n="ec_register_email">Adresse email</label>
+          <input type="email" id="reg-email" autocomplete="email" required>
+          <p class="form-error-msg" id="reg-email-err">Email valide requis</p>
+        </div>
+        <div class="form-group">
+          <label for="reg-phone" data-i18n="ec_register_phone">Téléphone (optionnel)</label>
+          <input type="tel" id="reg-phone" autocomplete="tel" dir="ltr">
+        </div>
+        <div class="form-group">
+          <label for="reg-pwd" data-i18n="ec_register_pwd">Choisissez un mot de passe</label>
+          <div class="pwd-wrap">
+            <input type="password" id="reg-pwd" autocomplete="new-password" required oninput="checkStrength(this.value)">
+            <button type="button" class="pwd-toggle" aria-label="Afficher" onclick="togglePwd('reg-pwd', this)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+          <div class="strength-bar-wrap">
+            <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
+            <p class="strength-label" id="strength-label"></p>
+          </div>
+          <p class="form-error-msg" id="reg-pwd-err">Minimum 8 caractères</p>
+        </div>
+        <div class="form-group">
+          <label for="reg-pwd2" data-i18n="ec_register_pwd2">Confirmer le mot de passe</label>
+          <div class="pwd-wrap">
+            <input type="password" id="reg-pwd2" autocomplete="new-password" required>
+            <button type="button" class="pwd-toggle" aria-label="Afficher" onclick="togglePwd('reg-pwd2', this)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+          <p class="form-error-msg" id="reg-pwd2-err">Les mots de passe ne correspondent pas</p>
+        </div>
+
+        <div class="form-error-msg" id="reg-global-err" style="font-size:.85rem;margin-bottom:.75rem;"></div>
+
+        <button type="submit" class="btn-primary" data-i18n="ec_register_btn">Créer mon compte →</button>
+      </form>
+
+      <div class="login-link-row" style="justify-content:center;">
+        <span data-i18n="ec_register_have_account">Déjà un compte ?</span>
+        <a href="#" onclick="showPanel('login')" data-i18n="ec_register_login">Se connecter</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════
+         PANEL 3 — VÉRIFICATION
+    ════════════════════ -->
+    <div class="login-panel" id="panel-verify">
+
+      <!-- Steps -->
+      <div class="steps-indicator" aria-label="Étapes">
+        <div class="step-dot done" id="v-step1">✓</div>
+        <div class="step-line done" id="v-line1"></div>
+        <div class="step-dot active" id="v-step2" aria-current="step">2</div>
+        <div class="step-line" id="v-line2"></div>
+        <div class="step-dot" id="v-step3">✓</div>
+      </div>
+
+      <h2 class="login-title" data-i18n="ec_verify_title">Vérification</h2>
+      <p class="login-subtitle" id="verify-subtitle" data-i18n="ec_verify_subtitle">Un code à 6 chiffres a été envoyé à votre adresse email.</p>
+
+      <div class="verify-inputs" role="group" aria-label="Code à 6 chiffres">
+        <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" id="v1" aria-label="Chiffre 1">
+        <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" id="v2" aria-label="Chiffre 2">
+        <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" id="v3" aria-label="Chiffre 3">
+        <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" id="v4" aria-label="Chiffre 4">
+        <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" id="v5" aria-label="Chiffre 5">
+        <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" id="v6" aria-label="Chiffre 6">
+      </div>
+
+      <div class="form-error-msg" id="verify-err" style="text-align:center;margin-bottom:.75rem;font-size:.85rem;"></div>
+
+      <button class="btn-primary" id="btn-verify" onclick="doVerify()" data-i18n="ec_verify_btn">Vérifier →</button>
+
+      <div class="resend-row">
+        <span data-i18n="ec_verify_resend">Renvoyer le code</span>
+        <button onclick="resendCode()">→</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="back-to-site">
+    <a href="../../index.html">
+      ← <span data-i18n="ec_back">Retour au site</span>
+    </a>
+  </div>
+
+<script>
+  /* ── Langue ── */
+  var currentLang = localStorage.getItem('mhbm_lang') || 'fr';
+
+  function switchLang(l) {
+    currentLang = l;
+    localStorage.setItem('mhbm_lang', l);
+    document.documentElement.lang = l;
+    document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+    document.body.classList.toggle('rtl', l === 'ar');
+    document.getElementById('lang-fr').classList.toggle('active', l === 'fr');
+    document.getElementById('lang-ar').classList.toggle('active', l === 'ar');
+    var dict = l === 'ar' ? window.LANG_AR : window.LANG_FR;
+    if (!dict) return;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key]) el.textContent = dict[key];
+    });
+  }
+  switchLang(currentLang);
+
+  /* ── Panels ── */
+  function showPanel(name) {
+    document.querySelectorAll('.login-panel').forEach(function(p) { p.classList.remove('active'); });
+    document.getElementById('panel-' + name).classList.add('active');
+    document.getElementById('demo-banner').style.display = name === 'login' ? '' : 'none';
+  }
+
+  /* ── Toggle password ── */
+  function togglePwd(id, btn) {
+    var inp = document.getElementById(id);
+    var show = inp.type === 'password';
+    inp.type = show ? 'text' : 'password';
+    btn.setAttribute('aria-label', show ? 'Masquer' : 'Afficher');
+  }
+
+  /* ── Password strength ── */
+  function checkStrength(val) {
+    var score = 0;
+    if (val.length >= 8) score++;
+    if (/[A-Z]/.test(val)) score++;
+    if (/[0-9]/.test(val)) score++;
+    if (/[^A-Za-z0-9]/.test(val)) score++;
+    var fill = document.getElementById('strength-fill');
+    var label = document.getElementById('strength-label');
+    var levels = [
+      { w: '0%',   bg: '#E2E8F0', txt: '' },
+      { w: '25%',  bg: '#EF4444', txt: 'Faible' },
+      { w: '50%',  bg: '#F97316', txt: 'Moyen' },
+      { w: '75%',  bg: '#EAB308', txt: 'Bien' },
+      { w: '100%', bg: '#22C55E', txt: 'Excellent' },
+    ];
+    var l = levels[score];
+    fill.style.width = l.w;
+    fill.style.background = l.bg;
+    label.textContent = l.txt;
+  }
+
+  /* ── Login ── */
+  document.getElementById('form-login').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var email = document.getElementById('login-email').value.trim();
+    var pwd   = document.getElementById('login-pwd').value;
+    var ok    = true;
+    if (!email) { showErr('login-email-err'); ok = false; }
+    else         hideErr('login-email-err');
+    if (!pwd)   { showErr('login-pwd-err'); ok = false; }
+    else         hideErr('login-pwd-err');
+    if (!ok) return;
+    var btn = document.getElementById('btn-login');
+    btn.disabled = true;
+    btn.textContent = '…';
+    setTimeout(function() {
+      var res = MHBM_AUTH.login(email, pwd);
+      if (res.success) {
+        window.location.href = 'dashboard.html';
+      } else {
+        showGlobalErr('login-global-err', res.error || 'Identifiants incorrects.');
+        btn.disabled = false;
+        btn.textContent = currentLang === 'ar' ? 'تسجيل الدخول' : 'Se connecter';
+      }
+    }, 900);
+  });
+
+  function demoLogin() {
+    var res = MHBM_AUTH.demoLogin();
+    if (res.success) window.location.href = 'dashboard.html';
+  }
+
+  /* ── Register ── */
+  document.getElementById('form-register').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var name  = document.getElementById('reg-name').value.trim();
+    var email = document.getElementById('reg-email').value.trim();
+    var pwd   = document.getElementById('reg-pwd').value;
+    var pwd2  = document.getElementById('reg-pwd2').value;
+    var ok    = true;
+    if (!name)           { showErr('reg-name-err'); ok = false; } else hideErr('reg-name-err');
+    if (!email || !/\S+@\S+\.\S+/.test(email)) { showErr('reg-email-err'); ok = false; } else hideErr('reg-email-err');
+    if (pwd.length < 8)  { showErr('reg-pwd-err'); ok = false; } else hideErr('reg-pwd-err');
+    if (pwd !== pwd2)    { showErr('reg-pwd2-err'); ok = false; } else hideErr('reg-pwd2-err');
+    if (!ok) return;
+
+    var phone = document.getElementById('reg-phone').value.trim();
+    var res = MHBM_AUTH.register(name, email, phone, pwd);
+    if (res.success) {
+      /* Afficher l'email masqué dans le subtitle */
+      var masked = email.replace(/(.{2}).+(@.+)/, '$1…$2');
+      document.getElementById('verify-subtitle').textContent =
+        (currentLang === 'ar' ? 'تم إرسال رمز مكوّن من 6 أرقام إلى ' : 'Un code à 6 chiffres a été envoyé à ') + masked;
+      showPanel('verify');
+      document.getElementById('v1').focus();
+    } else {
+      showGlobalErr('reg-global-err', res.error);
+    }
+  });
+
+  /* ── Verify ── */
+  var vInputs = ['v1','v2','v3','v4','v5','v6'].map(function(id) { return document.getElementById(id); });
+  vInputs.forEach(function(inp, i) {
+    inp.addEventListener('input', function() {
+      var val = inp.value.replace(/\D/g, '');
+      inp.value = val ? val[val.length-1] : '';
+      if (val && i < 5) vInputs[i+1].focus();
+    });
+    inp.addEventListener('keydown', function(e) {
+      if (e.key === 'Backspace' && !inp.value && i > 0) {
+        vInputs[i-1].focus();
+        vInputs[i-1].value = '';
+      }
+    });
+  });
+
+  function doVerify() {
+    var code = vInputs.map(function(i){ return i.value; }).join('');
+    if (code.length < 6) {
+      showGlobalErr('verify-err', currentLang === 'ar' ? 'أدخل الرمز كاملاً' : 'Veuillez saisir le code complet.');
+      return;
+    }
+    var btn = document.getElementById('btn-verify');
+    btn.disabled = true;
+    btn.textContent = '…';
+    setTimeout(function() {
+      var res = MHBM_AUTH.verify(code);
+      if (res.success) {
+        /* Étape 3 — succès */
+        document.getElementById('v-step2').classList.remove('active');
+        document.getElementById('v-step2').classList.add('done');
+        document.getElementById('v-step2').textContent = '✓';
+        document.getElementById('v-line2').classList.add('done');
+        document.getElementById('v-step3').classList.add('active');
+        setTimeout(function() { window.location.href = 'dashboard.html'; }, 800);
+      } else {
+        showGlobalErr('verify-err', res.error || 'Code incorrect.');
+        vInputs.forEach(function(i) { i.value = ''; });
+        vInputs[0].focus();
+        btn.disabled = false;
+        btn.textContent = currentLang === 'ar' ? 'تحقق ←' : 'Vérifier →';
+      }
+    }, 800);
+  }
+
+  function resendCode() {
+    vInputs.forEach(function(i) { i.value = ''; });
+    vInputs[0].focus();
+    var newCode = Math.floor(100000 + Math.random() * 900000).toString();
+    sessionStorage.setItem('mhbm_reg_code', newCode);
+    console.info('[MHBM Demo] Nouveau code :', newCode);
+    alert(currentLang === 'ar' ? 'تم إعادة الإرسال (وضع تجريبي).' : 'Code renvoyé (mode démo).');
+  }
+
+  /* ── Helpers ── */
+  function showErr(id) {
+    var el = document.getElementById(id);
+    if (el) el.classList.add('visible');
+  }
+  function hideErr(id) {
+    var el = document.getElementById(id);
+    if (el) el.classList.remove('visible');
+  }
+  function showGlobalErr(id, msg) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = msg;
+    el.style.display = 'block';
+    el.classList.add('visible');
+  }
+</script>
+</body>
+</html>

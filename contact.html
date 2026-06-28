@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contactez le Cabinet MHBM Avocat — Maître Haithem Ben Makhlouf. Formulaire, téléphone, WhatsApp.">
+  <title>Contact — Cabinet MHBM Avocat</title>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/typography.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+  <script src="../assets/js/lang/fr.js"></script>
+  <script src="../assets/js/lang/ar.js"></script>
+  <script src="../assets/js/components/page-template.js" defer></script>
+  <style>
+    .contact-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 3rem; align-items: start; }
+    @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; } }
+    .map-embed { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(10,57,119,.1); }
+    .map-embed iframe { width: 100%; height: 320px; border: 0; display: block; }
+    .contact-card { background: #F7F8FA; border-radius: 12px; padding: 1.75rem; margin-top: 1.5rem; }
+    .contact-card .info-row { display: flex; gap: .65rem; align-items: flex-start; margin-bottom: .85rem; font-size: .9rem; }
+    .contact-card .info-row svg { flex-shrink:0; color: var(--gold,#B58A45); margin-top:.15rem; }
+    .contact-card a { color: inherit; text-decoration: none; }
+    .contact-card a:hover { color: var(--blue-inst,#0A3977); }
+  </style>
+</head>
+<body>
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="../index.html" data-i18n="breadcrumb_home">Accueil</a>
+        <span>›</span>
+        <span aria-current="page" data-i18n="nav_contact">Contact</span>
+      </nav>
+      <h1 data-i18n="cta_title">Votre situation mérite une réponse claire. Parlons-en.</h1>
+      <p data-i18n="cta_subtitle">Premier contact gratuit · Confidentialité garantie · Réponse sous 24h</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Colonne gauche : infos + carte -->
+        <div data-reveal>
+          <h2 data-i18n="contact_map_title">Nous trouver</h2>
+          <p style="color:var(--text-mid,#4A5568);margin:.5rem 0 1.25rem;font-size:.9rem;">Rue des Fleurs, M'saken, Sousse 4070, Tunisie</p>
+
+          <div class="map-embed">
+            <iframe
+              title="Localisation Cabinet MHBM Avocat"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3236.74!2d10.5885!3d35.7290!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe6d0960ec942c8ac!2sMed%20Haithem%20Ben%20Maklouf%20(cabinet%20d'avocat%20Sousse)!5e0!3m2!1sfr!2stn!4v1700000000000"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <a href="https://www.google.com/maps/place/Med+Haithem+Ben+Maklouf+(cabinet+d%27avocat+Sousse)/data=!4m2!3m1!1s0x0:0xe6d0960ec942c8ac?sa=X&ved=1t:2428&ictx=111"
+             target="_blank" rel="noopener noreferrer"
+             style="display:inline-flex;align-items:center;gap:.4rem;margin-top:.75rem;font-size:.85rem;color:var(--blue-inst,#0A3977);font-weight:500;text-decoration:none;"
+             data-i18n="bureaux_map_link">
+            <svg width="14" height="14"><use href="../assets/icons/icons.svg#icon-external"/></svg>
+            Obtenir l'itinéraire →
+          </a>
+
+          <div class="contact-card">
+            <div class="info-row">
+              <svg width="16" height="16"><use href="../assets/icons/icons.svg#icon-phone"/></svg>
+              <div><strong>Téléphone</strong><br><a href="tel:+21673264360"><bdi dir="ltr">+216 73 264 360</bdi></a></div>
+            </div>
+            <div class="info-row">
+              <svg width="16" height="16"><use href="../assets/icons/icons.svg#icon-whatsapp"/></svg>
+              <div><strong>WhatsApp</strong><br><a href="https://wa.me/21698258015" rel="noopener noreferrer"><bdi dir="ltr">+216 98 258 015</bdi></a></div>
+            </div>
+            <div class="info-row">
+              <svg width="16" height="16"><use href="../assets/icons/icons.svg#icon-mail"/></svg>
+              <div><strong>Email</strong><br><a href="mailto:contact@mhbm-avocat.com">contact@mhbm-avocat.com</a></div>
+            </div>
+            <div class="info-row">
+              <svg width="16" height="16"><use href="../assets/icons/icons.svg#icon-clock"/></svg>
+              <div>
+                <strong data-i18n="footer_hours_title">Horaires</strong><br>
+                <span data-i18n="footer_hours_1">Lundi – Vendredi</span> : <bdi dir="ltr" data-i18n="footer_hours_1_val">08:00 – 17:30</bdi><br>
+                <span data-i18n="footer_hours_2">Samedi</span> : <bdi dir="ltr" data-i18n="footer_hours_2_val">08:00 – 13:30</bdi>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Colonne droite : formulaire -->
+        <div data-reveal>
+          <h2 data-i18n="form_title">Envoyez-nous votre demande</h2>
+          <p style="color:var(--text-mid,#4A5568);margin:.4rem 0 1.5rem;" data-i18n="form_subtitle">Réponse garantie sous 24 heures ouvrées</p>
+
+          <form id="contact-form" data-mhbm-form novalidate>
+            <div class="form-group">
+              <label for="c-name" data-i18n="form_name">Nom et prénom</label>
+              <input type="text" id="c-name" name="name" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="c-email" data-i18n="form_email">Email</label>
+              <input type="email" id="c-email" name="email" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="c-phone" data-i18n="form_phone">Téléphone</label>
+              <input type="tel" id="c-phone" name="phone" autocomplete="tel" dir="ltr">
+            </div>
+            <div class="form-group">
+              <label for="c-type" data-i18n="form_type">Type de demande</label>
+              <select id="c-type" name="type" required>
+                <option value="" data-i18n="form_type_default">Sélectionnez votre demande</option>
+                <option value="succession" data-i18n="form_type_1">Droit successoral / Héritage</option>
+                <option value="immobilier" data-i18n="form_type_2">Droit immobilier</option>
+                <option value="divorce" data-i18n="form_type_3">Divorce international</option>
+                <option value="affaires" data-i18n="form_type_4">Droit des affaires</option>
+                <option value="penal" data-i18n="form_type_5">Droit pénal</option>
+                <option value="procuration" data-i18n="form_type_6">Procuration</option>
+                <option value="investissement" data-i18n="form_type_7">Investissement en Tunisie</option>
+                <option value="nationalite" data-i18n="form_type_8">Nationalité tunisienne</option>
+                <option value="travail" data-i18n="form_type_9">Droit du travail</option>
+                <option value="accidents" data-i18n="form_type_10">Accidents & indemnisation</option>
+                <option value="baux" data-i18n="form_type_11">Baux & litiges</option>
+                <option value="autre" data-i18n="form_type_12">Autre demande</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="c-msg" data-i18n="form_msg">Message</label>
+              <textarea id="c-msg" name="message" rows="5" required></textarea>
+            </div>
+            <div class="form-group form-group-check">
+              <input type="checkbox" id="c-rgpd" name="rgpd" required>
+              <label for="c-rgpd" data-i18n="form_rgpd">J'accepte que mes données soient utilisées pour traiter ma demande, conformément à la politique de confidentialité du cabinet.</label>
+            </div>
+            <button type="submit" class="btn btn-accent btn-lg" data-i18n="form_submit">Envoyer ma demande →</button>
+
+            <div class="form-success" style="display:none;" role="alert">
+              <h4 data-i18n="form_success_title">Votre message a bien été envoyé.</h4>
+              <p data-i18n="form_success_msg">Notre équipe vous contactera dans un délai maximum de 24 heures ouvrées.</p>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+<script src="../assets/js/core.js" defer></script>
+</body>
+</html>
